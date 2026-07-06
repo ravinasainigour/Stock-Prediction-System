@@ -392,24 +392,25 @@ if file is not None:
 
         arima_preds = np.asarray(arima_preds, dtype=float)
 
+        x_arima = np.arange(len(arima_preds))
+
         fig3 = go.Figure()
 
         fig3.add_trace(go.Scatter(
-            x=x_lstm,
-            y=future_preds,
+            x=x_arima,
+            y=arima_preds,
             mode='lines+markers',
-            name='Arima Forecast',
-            line=dict(color='cyan', width=5),
+            name='ARIMA Forecast',
+            line=dict(color='orange', width=5),
             marker=dict(size=5)
         ))
-
         fig3.update_layout(
             template="plotly_dark",
 
             height=350,
 
             title=dict(
-                text="Arima Forecast",
+                text="ARIMA Forecast",
                 font=dict(size=22)
             ),
 
