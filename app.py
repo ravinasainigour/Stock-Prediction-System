@@ -266,6 +266,7 @@ if file is not None:
     # =========================
     with tab2:
         st.markdown("### 🔮 Prophet Prediction")
+        st.warning("Prophet temporarily disabled.")
 
 #         forecast = run_prophet(df).tail(60)
 
