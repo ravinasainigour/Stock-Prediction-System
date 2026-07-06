@@ -267,54 +267,54 @@ if file is not None:
     with tab2:
         st.markdown("### 🔮 Prophet Prediction")
 
-        forecast = run_prophet(df).tail(60)
+#         forecast = run_prophet(df).tail(60)
 
-        fig1 = go.Figure()
-        fig1.add_trace(go.Scatter(
-        x=forecast['ds'],
-        y=forecast['yhat'],
-        mode='lines',
-        line=dict(width=5),
-        name='Forecast'
-))
+#         fig1 = go.Figure()
+#         fig1.add_trace(go.Scatter(
+#         x=forecast['ds'],
+#         y=forecast['yhat'],
+#         mode='lines',
+#         line=dict(width=5),
+#         name='Forecast'
+# ))
         
-        fig1.update_layout(
-            template="plotly_dark",
+#         fig1.update_layout(
+#             template="plotly_dark",
 
-            height=420,
+#             height=420,
 
-            title=dict(
-                text="Prophet Forecast",
-                font=dict(size=22)
-            ),
+#             title=dict(
+#                 text="Prophet Forecast",
+#                 font=dict(size=22)
+#             ),
 
-            xaxis=dict(
-                title_font=dict(size=16),
-                tickfont=dict(size=12)
-            ),
+#             xaxis=dict(
+#                 title_font=dict(size=16),
+#                 tickfont=dict(size=12)
+#             ),
 
-            yaxis=dict(
-                title_font=dict(size=16),
-                tickfont=dict(size=12)
-            ),
+#             yaxis=dict(
+#                 title_font=dict(size=16),
+#                 tickfont=dict(size=12)
+#             ),
 
-            legend=dict(
-                font=dict(size=13)
-            ),
+#             legend=dict(
+#                 font=dict(size=13)
+#             ),
 
-            font=dict(size=14),
+#             font=dict(size=14),
 
-            margin=dict(
-                l=10,
-                r=10,
-                t=45,
-                b=10
-            )
-        )
+#             margin=dict(
+#                 l=10,
+#                 r=10,
+#                 t=45,
+#                 b=10
+#             )
+#         )
 
-        st.plotly_chart(fig1, use_container_width=True)
+#         st.plotly_chart(fig1, use_container_width=True)
 
-        st.markdown("---")
+#         st.markdown("---")
         # =========================
         # LSTM PREDICTION
         # =========================
