@@ -394,25 +394,54 @@ if file is not None:
 
         fig3 = go.Figure()
 
-        fig3.add_trace(
-            go.Scatter(
-                x=list(range(1, len(arima_preds) + 1)),
-                y=arima_preds,
-                mode="lines+markers",
-                name="ARIMA",
-                line=dict(color="orange", width=4)
-            )
-        )
+        fig3.add_trace(go.Scatter(
+            x=x_lstm,
+            y=future_preds,
+            mode='lines+markers',
+            name='Arima Forecast',
+            line=dict(color='cyan', width=5),
+            marker=dict(size=5)
+        ))
 
         fig3.update_layout(
             template="plotly_dark",
-            title="ARIMA Forecast",
-            xaxis_title="Days",
-            yaxis_title="Price",
-            height=400
+
+            height=350,
+
+            title=dict(
+                text="Arima Forecast",
+                font=dict(size=22)
+            ),
+
+            xaxis=dict(
+                title="Days",
+                title_font=dict(size=16),
+                tickfont=dict(size=12)
+            ),
+
+            yaxis=dict(
+                title="Price",
+                title_font=dict(size=16),
+                tickfont=dict(size=12)
+            ),
+
+            legend=dict(
+                font=dict(size=13)
+            ),
+
+            font=dict(size=14),
+
+            margin=dict(
+                l=10,
+                r=10,
+                t=45,
+                b=10
+            )
         )
 
-    st.plotly_chart(fig3, use_container_width=True)
+        st.plotly_chart(fig3, use_container_width=True)
+
+        st.markdown("---")
 
         # =========================
         # MODEL COMPARISON
