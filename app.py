@@ -388,10 +388,18 @@ if file is not None:
 
         st.markdown("### 📉 ARIMA Prediction")
 
-        arima_preds = run_arima(df)
+        try:
+            arima_preds = run_arima(df)
 
-        arima_preds = np.asarray(arima_preds, dtype=float)
+            st.write("ARIMA type:", type(arima_preds))
+            st.write("ARIMA values:", arima_preds)
 
+            arima_preds = np.array(arima_preds).flatten()
+
+            st.write("Length:", len(arima_preds))
+
+        except Exception as e:
+            st.error(f"ARIMA Error: {e}")
         fig3 = go.Figure()
 
         fig3.add_trace(
