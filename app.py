@@ -14,7 +14,7 @@ from models.arima_model import run_arima
 # -------------------------------
 # PAGE CONFIG
 # -------------------------------
-st.set_page_config(page_title="IntelliTrade AI", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Stock Prediction System", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
 <style>
@@ -211,7 +211,7 @@ st.markdown("""
 </h1>
 
 <p class="subtitle">
-AI-Powered Stock Market Prediction using Prophet, LSTM & ARIMA
+ Stock Market Prediction using Prophet, LSTM & ARIMA
 </p>
 """, unsafe_allow_html=True)
 
@@ -266,56 +266,56 @@ if file is not None:
     # =========================
     with tab2:
         st.markdown("### 🔮 Prophet Prediction")
-        st.warning("Prophet temporarily disabled.")
-
-#         forecast = run_prophet(df).tail(60)
-
-#         fig1 = go.Figure()
-#         fig1.add_trace(go.Scatter(
-#         x=forecast['ds'],
-#         y=forecast['yhat'],
-#         mode='lines',
-#         line=dict(width=5),
-#         name='Forecast'
-# ))
         
-#         fig1.update_layout(
-#             template="plotly_dark",
 
-#             height=420,
+        forecast = run_prophet(df).tail(60)
 
-#             title=dict(
-#                 text="Prophet Forecast",
-#                 font=dict(size=22)
-#             ),
+        fig1 = go.Figure()
+        fig1.add_trace(go.Scatter(
+        x=forecast['ds'],
+        y=forecast['yhat'],
+        mode='lines',
+        line=dict(width=5),
+        name='Forecast'
+))
+        
+        fig1.update_layout(
+            template="plotly_dark",
 
-#             xaxis=dict(
-#                 title_font=dict(size=16),
-#                 tickfont=dict(size=12)
-#             ),
+            height=420,
 
-#             yaxis=dict(
-#                 title_font=dict(size=16),
-#                 tickfont=dict(size=12)
-#             ),
+            title=dict(
+                text="Prophet Forecast",
+                font=dict(size=22)
+            ),
 
-#             legend=dict(
-#                 font=dict(size=13)
-#             ),
+            xaxis=dict(
+                title_font=dict(size=16),
+                tickfont=dict(size=12)
+            ),
 
-#             font=dict(size=14),
+            yaxis=dict(
+                title_font=dict(size=16),
+                tickfont=dict(size=12)
+            ),
 
-#             margin=dict(
-#                 l=10,
-#                 r=10,
-#                 t=45,
-#                 b=10
-#             )
-#         )
+            legend=dict(
+                font=dict(size=13)
+            ),
 
-#         st.plotly_chart(fig1, use_container_width=True)
+            font=dict(size=14),
 
-#         st.markdown("---")
+            margin=dict(
+                l=10,
+                r=10,
+                t=45,
+                b=10
+            )
+        )
+
+        st.plotly_chart(fig1, use_container_width=True)
+
+        st.markdown("---")
         # =========================
         # LSTM PREDICTION
         # =========================
